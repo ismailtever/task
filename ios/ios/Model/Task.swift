@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Resource
-struct Resource: Codable {
+struct Task: Codable {
     let task: String?
     let title: String?
     let description: String?
@@ -23,17 +23,17 @@ struct Resource: Codable {
     let isAvailableInTimeTrackingKioskMode: Bool?
     
     enum CodingKeys: String, CodingKey {
-        case task = "Task"
-        case title = "Title"
-        case description = "Description"
-        case sort = "Sort"
-        case wageType = "WageType"
+        case task = "task"
+        case title = "title"
+        case description = "description"
+        case sort = "sort"
+        case wageType = "wageType"
         case businessUnitKey = "BusinessUnitKey"
-        case businessUnit = "BusinessUnit"
-        case parentTaskID = "ParentTaskID"
-        case preplanningBoardQuickSelect = "PreplanningBoardQuickSelect"
-        case colorCode = "ColorCode"
-        case workingTime = "WorkingTime"
-        case isAvailableInTimeTrackingKioskMode = "IsAvailableInTimeTrackingKioskMode"
+        case businessUnit = "businessUnit"
+        case parentTaskID = "parentTaskID"
+        case preplanningBoardQuickSelect = "preplanningBoardQuickSelect"
+        case colorCode = "colorCode"
+        case workingTime = "workingTime"
+        case isAvailableInTimeTrackingKioskMode = "isAvailableInTimeTrackingKioskMode"
     }
 }

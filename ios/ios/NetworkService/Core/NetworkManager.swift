@@ -12,29 +12,32 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    //T.Type dışarıdan alacağım bir Type. Bu Type a göre pars et, handle et.
-    func request<T: Codable>(type: T.Type, url: String, method: HTTPMethod, completion: @escaping ((Result<T, ErrorTypes>)->())) {
-        
-        AF.request(url, method: method).responseDecodable(of: T.self) { response in
-            switch response.result{
-            case .success(let data):
-                completion(.success(data))
-            case .failure(_):
-                completion(.failure(ErrorTypes.generalError))
+    func request<T: Decodable>(type: T.Type, url: String, headers:HTTPHeaders?, params:[String:Any]?, method:HTTPMethod, completion: @escaping(NetworkResponse<T>)->Void) {
+        AF.request(url,
+                   method: method,
+                   parameters: params,
+                   encoding: JSONEncoding.default,
+                   headers: headers).responseData { response in
+            self.handleResponseData(response: response) { complete in
+                completion(complete)
             }
         }
-        
-       
+    }
+    func handleResponseData<T: Decodable>(response: AFDataResponse<Data>, completion: (NetworkResponse<T>) -> ()) {
+        if let code = response.response?.statusCode {
+            print("responseCode: \(code)")
+            switch code {
+            case 200...299:
+                guard let data = response.data, let model = try? JSONDecoder().decode(T.self, from: data) else { return }
+                //print("responseModel: \(String(data: data, encoding: .utf8) ?? "no model")")
+                completion(.success(model))
+                
+            default:
+                guard let data = response.data, let model = try? JSONDecoder().decode(ErrorMessage.self, from: data) else { return }
+                completion(.messageFailure(model))
+            }
+        }
     }
     
-    fileprivate func handleResponse<T: Codable>(data: Data, completion: @escaping ((Result<T, ErrorTypes>)->())) {
-        do {
-            let result = try JSONDecoder().decode(T.self, from: data)
-            completion(.success(result))
-        } catch {
-            //datayı pars edemeyince
-            completion(.failure(ErrorTypes.invalidData))
-        }
-        
-    }
+    
 }
