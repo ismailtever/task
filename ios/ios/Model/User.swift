@@ -38,11 +38,11 @@ struct UserInfo: Codable {
     let businessUnit: String?
 
     enum CodingKeys: String, CodingKey {
-        case personalNo = "personel_no"
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case displayName = "display_name"
+        case personalNo = "personelNo"
+        case firstName = "firstName"
+        case lastName = "lastName"
+        case displayName = "displayName"
         case active = "active"
-        case businessUnit = "business_unit"
+        case businessUnit = "businessUnit"
     }
 }
