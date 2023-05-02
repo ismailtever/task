@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import CoreData
 class ViewController: UIViewController {
     
     let parameters : [String : Any] = [
@@ -21,6 +22,10 @@ class ViewController: UIViewController {
         AuthService.shared.login(parameters: parameters) { Response in
             TaskService.shared.getUserTasks { res in
                 print(res)
+                print("-------------------------")
+                print("-------------------------")
+                print("-------------------------")
+                print(CoreDataManager.shared.saveDataOf(tasks: res))
             } failure: { ErrorMessage in
                 print(ErrorMessage)
             }
