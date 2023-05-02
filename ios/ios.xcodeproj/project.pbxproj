@@ -10,6 +10,8 @@
 		D94EDA6729FFF75D009D8486 /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6629FFF75D009D8486 /* NetworkUtility.swift */; };
 		D94EDA6929FFFE12009D8486 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6829FFFE12009D8486 /* AuthService.swift */; };
 		D94EDA6B29FFFE40009D8486 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6A29FFFE40009D8486 /* TaskService.swift */; };
+		D94EDA6E2A005884009D8486 /* TaskItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6C2A005883009D8486 /* TaskItem+CoreDataClass.swift */; };
+		D94EDA6F2A005884009D8486 /* TaskItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6D2A005884009D8486 /* TaskItem+CoreDataProperties.swift */; };
 		D98BC83829FAB575005D15C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC83729FAB575005D15C2 /* AppDelegate.swift */; };
 		D98BC83A29FAB575005D15C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC83929FAB575005D15C2 /* SceneDelegate.swift */; };
 		D98BC83C29FAB575005D15C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC83B29FAB575005D15C2 /* ViewController.swift */; };
@@ -24,6 +26,7 @@
 		D98BC87629FAB771005D15C2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC87529FAB771005D15C2 /* Task.swift */; };
 		D98BC87A29FB0F6D005D15C2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC87929FB0F6D005D15C2 /* NetworkManager.swift */; };
 		D98BC87D29FB119D005D15C2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D98BC87C29FB119D005D15C2 /* Alamofire */; };
+		D9A421ED2A015AE8002E1045 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A421EC2A015AE8002E1045 /* CoreDataManager.swift */; };
 		D9BFD60129FC31F2006D28AF /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BFD60029FC31F2006D28AF /* ErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,8 @@
 		D94EDA6629FFF75D009D8486 /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
 		D94EDA6829FFFE12009D8486 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D94EDA6A29FFFE40009D8486 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		D94EDA6C2A005883009D8486 /* TaskItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D94EDA6D2A005884009D8486 /* TaskItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D98BC83429FAB575005D15C2 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98BC83729FAB575005D15C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D98BC83929FAB575005D15C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 		D98BC87329FAB767005D15C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D98BC87529FAB771005D15C2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D98BC87929FB0F6D005D15C2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D9A421EC2A015AE8002E1045 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D9BFD60029FC31F2006D28AF /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +100,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D94EDA702A005893009D8486 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D94EDA6C2A005883009D8486 /* TaskItem+CoreDataClass.swift */,
+				D94EDA6D2A005884009D8486 /* TaskItem+CoreDataProperties.swift */,
+				D9A421EC2A015AE8002E1045 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		D98BC82B29FAB575005D15C2 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +133,7 @@
 		D98BC83629FAB575005D15C2 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				D94EDA702A005893009D8486 /* CoreData */,
 				D98BC87029FAB608005D15C2 /* NetworkService */,
 				D98BC86F29FAB603005D15C2 /* View */,
 				D98BC86E29FAB601005D15C2 /* ViewModel */,
@@ -383,11 +400,14 @@
 				D9BFD60129FC31F2006D28AF /* ErrorMessage.swift in Sources */,
 				D98BC83829FAB575005D15C2 /* AppDelegate.swift in Sources */,
 				D94EDA6B29FFFE40009D8486 /* TaskService.swift in Sources */,
+				D94EDA6E2A005884009D8486 /* TaskItem+CoreDataClass.swift in Sources */,
 				D98BC87A29FB0F6D005D15C2 /* NetworkManager.swift in Sources */,
 				D94EDA6929FFFE12009D8486 /* AuthService.swift in Sources */,
 				D98BC87629FAB771005D15C2 /* Task.swift in Sources */,
+				D94EDA6F2A005884009D8486 /* TaskItem+CoreDataProperties.swift in Sources */,
 				D98BC83A29FAB575005D15C2 /* SceneDelegate.swift in Sources */,
 				D94EDA6729FFF75D009D8486 /* NetworkUtility.swift in Sources */,
+				D9A421ED2A015AE8002E1045 /* CoreDataManager.swift in Sources */,
 				D98BC84229FAB575005D15C2 /* ios.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
