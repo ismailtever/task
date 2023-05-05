@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D90ACD7E2A042C7800E7691E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90ACD7D2A042C7800E7691E /* Task.swift */; };
+		D90ACD812A057EED00E7691E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90ACD802A057EED00E7691E /* LoginViewController.swift */; };
 		D94EDA6729FFF75D009D8486 /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6629FFF75D009D8486 /* NetworkUtility.swift */; };
 		D94EDA6929FFFE12009D8486 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6829FFFE12009D8486 /* AuthService.swift */; };
 		D94EDA6B29FFFE40009D8486 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6A29FFFE40009D8486 /* TaskService.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		D90ACD7D2A042C7800E7691E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		D90ACD802A057EED00E7691E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D94EDA6629FFF75D009D8486 /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
 		D94EDA6829FFFE12009D8486 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D94EDA6A29FFFE40009D8486 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D90ACD7F2A057E6D00E7691E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D90ACD802A057EED00E7691E /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		D94EDA702A005893009D8486 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,8 @@
 		D98BC86F29FAB603005D15C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D98BC83D29FAB575005D15C2 /* Main.storyboard */,
+				D90ACD7F2A057E6D00E7691E /* Login */,
 				D9A421EE2A027E25002E1045 /* Cell */,
 				D98BC87229FAB6DE005D15C2 /* Base */,
 			);
@@ -240,7 +252,6 @@
 		D98BC87229FAB6DE005D15C2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				D98BC83D29FAB575005D15C2 /* Main.storyboard */,
 				D98BC83B29FAB575005D15C2 /* ViewController.swift */,
 			);
 			path = Base;
@@ -422,6 +433,7 @@
 				D94EDA6929FFFE12009D8486 /* AuthService.swift in Sources */,
 				D94EDA6F2A005884009D8486 /* TaskItem+CoreDataProperties.swift in Sources */,
 				D98BC83A29FAB575005D15C2 /* SceneDelegate.swift in Sources */,
+				D90ACD812A057EED00E7691E /* LoginViewController.swift in Sources */,
 				D94EDA6729FFF75D009D8486 /* NetworkUtility.swift in Sources */,
 				D9A421F22A02962F002E1045 /* TaskViewModel.swift in Sources */,
 				D98BC84229FAB575005D15C2 /* ios.xcdatamodeld in Sources */,

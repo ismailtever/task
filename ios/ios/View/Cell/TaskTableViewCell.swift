@@ -9,11 +9,10 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var coloredCircle: UIImageView!
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
