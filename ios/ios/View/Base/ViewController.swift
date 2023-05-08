@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupSearchBar()
+        setupPullRefresh()
         CoreDataManager.shared.deleteObjectsFromCoreData(context: managedObjectContext!)
         AuthService.shared.login(parameters: parameters) { Response in
             TaskService.shared.getUserTasks { res in
@@ -53,21 +54,47 @@ class ViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        navigationItem.hidesBackButton = true
     }
     private func setupSearchBar() {
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = true
         searchController.searchBar.placeholder = "Search Tasks..."
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.tintColor = UIColor.blue
+    }
+    private func setupPullRefresh() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+    }
+    @objc func didPullToRefresh(sender: AnyObject) {
+        CoreDataManager.shared.deleteObjectsFromCoreData(context: managedObjectContext!)
+        AuthService.shared.login(parameters: parameters) { Response in
+            TaskService.shared.getUserTasks { res in
+                print(res)
+                print("-------------------------")
+                CoreDataManager.shared.saveToCoreData(tasks: res)
+                self.fetchCoreDataItems()
+                print("-------------------------")
+            } failure: { ErrorMessage in
+                print(ErrorMessage)
+            }
+        } failure: { ErrorMessage in
+            print(ErrorMessage)
+        }
+        DispatchQueue.main.async {
+            self.fetchCoreDataItems()
+            self.tableView.refreshControl?.endRefreshing()
+
+        }
     }
     private func fetchCoreDataItems() {
         let fetchRequest = NSFetchRequest<TaskItem>(entityName: "TaskItem")
         coreDataItems = try! managedObjectContext!.fetch(fetchRequest)
         tableView.reloadData()
     }
+    
 }
 // MARK: - Extensions
 extension ViewController: UITableViewDataSource {
@@ -90,7 +117,7 @@ extension ViewController: UITableViewDelegate {
             do {
 //                let taskData = coreDataItems[indexPath.row]
                 let items = (searchController.isActive) ? searchArray[(indexPath as NSIndexPath).row] : coreDataItems[(indexPath as NSIndexPath).row]
-                let color1 = UIColor(hexString: items.value(forKey: "color") as! String)
+                let color1 = (UIColor(hexString: items.value(forKey: "color") as! String))
                 cell.taskLabel.text = items.value(forKey: "task") as? String
                 cell.titleLabel.text = items.value(forKey: "title") as? String
                 cell.descriptionLabel.text = items.value(forKey: "desc") as? String
