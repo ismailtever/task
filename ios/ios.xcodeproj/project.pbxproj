@@ -616,6 +616,7 @@
 				DEVELOPMENT_TEAM = G639H868D6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ios/Support/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to use your camera to scan codes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -645,6 +646,7 @@
 				DEVELOPMENT_TEAM = G639H868D6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ios/Support/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to use your camera to scan codes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -712,6 +714,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G639H868D6;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to use tour camera to scan codes";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ismailtever.iosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -730,6 +733,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G639H868D6;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to use tour camera to scan codes";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ismailtever.iosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
