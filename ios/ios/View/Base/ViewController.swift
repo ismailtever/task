@@ -7,6 +7,9 @@
 
 import UIKit
 import CoreData
+import VisionKit
+
+@available(iOS 16.0, *)
 class ViewController: UIViewController {
     
     //MARK: - UI Elements
@@ -21,11 +24,15 @@ class ViewController: UIViewController {
     private var coreDataItems = [TaskItem]()
     private var searchArray:[TaskItem] = []
     private let managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    var scannerAvaible: Bool {
+        DataScannerViewController.isSupported && DataScannerViewController.isAvailable
+    }
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupNavBarItems()
         setupSearchBar()
         setupPullRefresh()
         CoreDataManager.shared.deleteObjectsFromCoreData(context: managedObjectContext!)
@@ -64,6 +71,21 @@ class ViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.tintColor = UIColor.blue
     }
+    private func setupNavBarItems() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "qrcode.viewfinder"), style: .plain, target: self, action: #selector(didQrScanClicked))
+    }
+    @objc func didQrScanClicked() {
+        guard scannerAvaible == true else {
+            print("Error: Scanner is not avaible.")
+            return
+            }
+        //present data scanner
+        let dataScanner = DataScannerViewController(recognizedDataTypes: [.text(), .barcode()], isHighlightingEnabled: true)
+        dataScanner.delegate = self
+        present(dataScanner, animated: true)
+        try? dataScanner.startScanning()
+    }
+    
     private func setupPullRefresh() {
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
@@ -97,6 +119,7 @@ class ViewController: UIViewController {
     
 }
 // MARK: - Extensions
+@available(iOS 16.0, *)
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive == true {
@@ -106,6 +129,7 @@ extension ViewController: UITableViewDataSource {
             }
     }
 }
+@available(iOS 16.0, *)
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tapped.")
@@ -129,6 +153,7 @@ extension ViewController: UITableViewDelegate {
         return cell
     }
 }
+@available(iOS 16.0, *)
 extension ViewController: UISearchResultsUpdating {
     func filterContentForSearchText(_ searchText: String) {
             searchArray = coreDataItems.filter({ (coreDataItems:TaskItem) -> Bool in
@@ -142,6 +167,26 @@ extension ViewController: UISearchResultsUpdating {
         if let searchText = searchController.searchBar.text {
             filterContentForSearchText(searchText)
             tableView.reloadData()
+        }
+    }
+    
+    func searchWithBarcodeText(searchText: String) {
+            filterContentForSearchText(searchText)
+            tableView.reloadData()
+    }
+}
+@available(iOS 16.0, *)
+extension ViewController: DataScannerViewControllerDelegate {
+    func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
+        switch item {
+        case .text(let text):
+            print("\(text.transcript)")
+            UIPasteboard.general.string = searchController.searchBar.text
+//        case .barcode(let barcode):
+//            print("\(barcode.)")
+//
+        default :
+            print("Unexpected item.")
         }
     }
 }
