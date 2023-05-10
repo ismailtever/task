@@ -10,11 +10,11 @@ import CoreData
 import VisionKit
 
 @available(iOS 16.0, *)
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     //MARK: - UI Elements
     @IBOutlet var tableView: UITableView!
-    var searchController:UISearchController!
+    var searchController: UISearchController!
     
     //MARK: - Properties
     private let parameters : [String : Any] = [
@@ -91,24 +91,17 @@ class ViewController: UIViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     }
     @objc func didPullToRefresh(sender: AnyObject) {
-        CoreDataManager.shared.deleteObjectsFromCoreData(context: managedObjectContext!)
-        AuthService.shared.login(parameters: parameters) { Response in
-            TaskService.shared.getUserTasks { res in
-                print(res)
-                print("-------------------------")
-                CoreDataManager.shared.saveToCoreData(tasks: res)
-                self.fetchCoreDataItems()
-                print("-------------------------")
-            } failure: { ErrorMessage in
-                print(ErrorMessage)
-            }
+        TaskService.shared.getUserTasks { res in
+            CoreDataManager.shared.deleteObjectsFromCoreData(context: self.managedObjectContext!)
+            CoreDataManager.shared.saveToCoreData(tasks: res)
+            self.fetchCoreDataItems()
         } failure: { ErrorMessage in
+            self.fetchCoreDataItems()
             print(ErrorMessage)
         }
         DispatchQueue.main.async {
             self.fetchCoreDataItems()
             self.tableView.refreshControl?.endRefreshing()
-
         }
     }
     private func fetchCoreDataItems() {
@@ -120,7 +113,7 @@ class ViewController: UIViewController {
 }
 // MARK: - Extensions
 @available(iOS 16.0, *)
-extension ViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive == true {
                     return searchArray.count
@@ -130,7 +123,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 @available(iOS 16.0, *)
-extension ViewController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tapped.")
     }
@@ -154,7 +147,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 @available(iOS 16.0, *)
-extension ViewController: UISearchResultsUpdating {
+extension HomeViewController: UISearchResultsUpdating {
     func filterContentForSearchText(_ searchText: String) {
             searchArray = coreDataItems.filter({ (coreDataItems:TaskItem) -> Bool in
                 let taskMatch = coreDataItems.task!.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
@@ -176,7 +169,7 @@ extension ViewController: UISearchResultsUpdating {
     }
 }
 @available(iOS 16.0, *)
-extension ViewController: DataScannerViewControllerDelegate {
+extension HomeViewController: DataScannerViewControllerDelegate {
     func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
         switch item {
         case .text(let text):
