@@ -1,3 +1,13 @@
+*The application preview and all features are recorded in this screen recording:*
+- **Coredata offline support**
+- **Network layer implementation**
+- **MVC Design pattern**
+- **Auth token management**
+
+[Screen Recording](https://drive.google.com/file/d/13369xjWojp37h8HyVCc9McjcpAnZ4086/view?usp=share_link)
+
+
+
 Hello dear iOS dev prospect!
 
 This repository is supposed to act as a playground for your submission.
