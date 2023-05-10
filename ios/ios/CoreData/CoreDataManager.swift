@@ -31,13 +31,6 @@ class CoreDataManager {
         try! managedObjectContext?.save()
     }
     
-    
-//    func fetchCoreDataItems() {
-//        let managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-//        let fetchRequest = NSFetchRequest<TaskItem>(entityName: "TaskItem")
-//        coreDataItems = try! managedObjectContext!.fetch(fetchRequest)
-//    }
-    
     func fetchFromCoreData() {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedObjectContext = appDelegate?.persistentContainer.viewContext

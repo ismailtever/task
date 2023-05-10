@@ -25,16 +25,13 @@ class NetworkManager {
     }
     func handleResponseData<T: Decodable>(response: AFDataResponse<Data>, completion: (NetworkResponse<T>) -> ()) {
         if let code = response.response?.statusCode {
-            print("responseCode: \(code)")
             switch code {
             case 200...299:
                 guard let data = response.data, let model = try? JSONDecoder().decode(T.self, from: data) else { return }
-                //print("responseModel: \(String(data: data, encoding: .utf8) ?? "no model")")
                 completion(.success(model))
-                
+
             default:
-                guard let data = response.data, let model = try? JSONDecoder().decode(ErrorMessage.self, from: data) else { return }
-                completion(.messageFailure(model))
+                completion(.messageFailure(ErrorMessage(error: "Server Error")))
             }
         }
     }

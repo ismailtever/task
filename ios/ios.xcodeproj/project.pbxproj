@@ -16,7 +16,7 @@
 		D94EDA6F2A005884009D8486 /* TaskItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94EDA6D2A005884009D8486 /* TaskItem+CoreDataProperties.swift */; };
 		D98BC83829FAB575005D15C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC83729FAB575005D15C2 /* AppDelegate.swift */; };
 		D98BC83A29FAB575005D15C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC83929FAB575005D15C2 /* SceneDelegate.swift */; };
-		D98BC83C29FAB575005D15C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC83B29FAB575005D15C2 /* ViewController.swift */; };
+		D98BC83C29FAB575005D15C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC83B29FAB575005D15C2 /* HomeViewController.swift */; };
 		D98BC83F29FAB575005D15C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D98BC83D29FAB575005D15C2 /* Main.storyboard */; };
 		D98BC84229FAB575005D15C2 /* ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D98BC84029FAB575005D15C2 /* ios.xcdatamodeld */; };
 		D98BC84429FAB578005D15C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98BC84329FAB578005D15C2 /* Assets.xcassets */; };
@@ -28,7 +28,6 @@
 		D98BC87A29FB0F6D005D15C2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98BC87929FB0F6D005D15C2 /* NetworkManager.swift */; };
 		D98BC87D29FB119D005D15C2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D98BC87C29FB119D005D15C2 /* Alamofire */; };
 		D9A421F02A0292C1002E1045 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A421EF2A0292C1002E1045 /* TaskTableViewCell.swift */; };
-		D9A421F22A02962F002E1045 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A421F12A02962F002E1045 /* TaskViewModel.swift */; };
 		D9A421F72A03D835002E1045 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A421F62A03D834002E1045 /* CoreDataManager.swift */; };
 		D9BFD60129FC31F2006D28AF /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BFD60029FC31F2006D28AF /* ErrorMessage.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,7 @@
 		D98BC83429FAB575005D15C2 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98BC83729FAB575005D15C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D98BC83929FAB575005D15C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D98BC83B29FAB575005D15C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D98BC83B29FAB575005D15C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D98BC83E29FAB575005D15C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D98BC84129FAB575005D15C2 /* ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ios.xcdatamodel; sourceTree = "<group>"; };
 		D98BC84329FAB578005D15C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,7 +74,6 @@
 		D98BC87329FAB767005D15C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D98BC87929FB0F6D005D15C2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D9A421EF2A0292C1002E1045 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
-		D9A421F12A02962F002E1045 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		D9A421F62A03D834002E1045 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D9BFD60029FC31F2006D28AF /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,7 +148,6 @@
 				D94EDA702A005893009D8486 /* CoreData */,
 				D98BC87029FAB608005D15C2 /* NetworkService */,
 				D98BC86F29FAB603005D15C2 /* View */,
-				D98BC86E29FAB601005D15C2 /* ViewModel */,
 				D98BC86D29FAB5FD005D15C2 /* Model */,
 				D98BC86C29FAB5FB005D15C2 /* Support */,
 				D98BC86B29FAB5F9005D15C2 /* Resources */,
@@ -213,14 +210,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D98BC86E29FAB601005D15C2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				D9A421F12A02962F002E1045 /* TaskViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		D98BC86F29FAB603005D15C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,7 +241,7 @@
 		D98BC87229FAB6DE005D15C2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				D98BC83B29FAB575005D15C2 /* ViewController.swift */,
+				D98BC83B29FAB575005D15C2 /* HomeViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -421,7 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D98BC87429FAB767005D15C2 /* User.swift in Sources */,
-				D98BC83C29FAB575005D15C2 /* ViewController.swift in Sources */,
+				D98BC83C29FAB575005D15C2 /* HomeViewController.swift in Sources */,
 				D9A421F02A0292C1002E1045 /* TaskTableViewCell.swift in Sources */,
 				D9A421F72A03D835002E1045 /* CoreDataManager.swift in Sources */,
 				D9BFD60129FC31F2006D28AF /* ErrorMessage.swift in Sources */,
@@ -435,7 +424,6 @@
 				D98BC83A29FAB575005D15C2 /* SceneDelegate.swift in Sources */,
 				D90ACD812A057EED00E7691E /* LoginViewController.swift in Sources */,
 				D94EDA6729FFF75D009D8486 /* NetworkUtility.swift in Sources */,
-				D9A421F22A02962F002E1045 /* TaskViewModel.swift in Sources */,
 				D98BC84229FAB575005D15C2 /* ios.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -596,7 +584,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -628,7 +616,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ismailtever.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.isotevo.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -658,7 +646,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ismailtever.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.isotevo.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
