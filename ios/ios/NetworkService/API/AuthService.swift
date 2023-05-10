@@ -17,6 +17,7 @@ class AuthService {
             case .success(let authInfo):
                 UserDefaults.standard.set(authInfo.oauth?.accessToken, forKey: "accessToken")
                 success(authInfo)
+                print(authInfo)
             case .messageFailure(let errorMessage):
                 failure(errorMessage)
             }
